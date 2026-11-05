@@ -151,13 +151,13 @@ function setMsg(){
   $('sb').style.display=(mode==='auto'||mode==='song')?'':'none';
   if(mode==='free') msg.textContent='ফ্রি প্লে: যেকোনো ঘরে ট্যাপ করুন 🎸';
   if(mode==='prac') msg.textContent='অনুশীলন '+(i+1)+'/'+seq.length+' → '+desc(seq[i])+' ('+nm(seq[i][0],seq[i][1])+')';
-  if(mode==='test') msg.textContent='টেস্ট '+(i+1)+'/'+seq.length+': '+desc(seq[i])+' | ভুল: '+wrong+'/2';
+  if(mode==='test') msg.textContent='টেস্ট '+(i+1)+'/'+seq.length+' → বাজান: '+desc(seq[i])+' ('+nm(seq[i][0],seq[i][1])+') | ভুল: '+wrong+'/2';
   if(mode==='song') msg.textContent='গান '+(i+1)+'/'+seq.length+' → '+desc(seq[i])+' ('+nm(seq[i][0],seq[i][1])+')';
   if(mode==='auto') msg.textContent='▶ বাজছে... সবুজ ঘর দেখে শিখুন';
 }
 function stopAll(){ timers.forEach(clearTimeout); timers=[]; mode='free'; clearTg(); setMsg(); }
 function startPrac(n){ stopAll(); si=n;mode='prac';seq=ST[n].p;i=0;showTg();setMsg();dlg('<h3>'+ST[n].t+'</h3><p>'+ST[n].d+'</p><div class="row"><button class="t" onclick="closeDlg()">শুরু করুন</button></div>'); }
-function startTest(){ mode='test';wrong=0;i=0;seq=ST[si].keep?ST[si].p.slice():ST[si].p.slice().sort(()=>Math.random()-.5);clearTg();setMsg();closeDlg(); }
+function startTest(){ mode='test';wrong=0;i=0;seq=ST[si].keep?ST[si].p.slice():ST[si].p.slice().sort(()=>Math.random()-.5);clearTg();setMsg();dlg('<h3>📝 টেস্ট</h3><p>এবার <b>সবুজ গাইড থাকবে না</b> আর <b>ক্রম এলোমেলো</b> হবে (অনুশীলনের ক্রম নয়)। প্রতিবার ওপরের বারে লেখা তার ও ফ্রেট দেখে সেই ঘর ট্যাপ করুন। ২টির বেশি ভুল করা যাবে না।</p><div class="row"><button class="t" onclick="closeDlg()">বুঝেছি, শুরু</button></div>'); }
 function hit(r,f){
   pluck(r,f); flash(cells[r+'_'+f],'on');
   if(mode==='free'||mode==='auto')return;

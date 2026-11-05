@@ -269,7 +269,7 @@ document.addEventListener('pointerdown',initAudio,{once:true});
 // ইনস্টল (PWA)
 let dp; addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); dp=e; $('inst').style.display='block'; });
 $('inst').onclick=()=>{ if(dp){ dp.prompt(); dp=null; $('inst').style.display='none'; } };
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('app-sw.js').catch(()=>{});
 
 // থিম (ডার্ক / লাইট)
 function setTheme(t){ document.documentElement.dataset.theme=t; localStorage.setItem('gth',t);

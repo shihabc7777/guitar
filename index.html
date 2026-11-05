@@ -251,6 +251,7 @@ function drawMenu(){ $('stl').innerHTML=''; ST.forEach((s,n)=>{ const b=document
   b.onclick=()=>{ if(!ok)return; $('menu').style.display='none'; startPrac(n); }; $('stl').appendChild(b); }); }
 $('mb').onclick=()=>{ initAudio(); $('menu').style.display='flex'; };
 $('mc').onclick=()=>$('menu').style.display='none';
+  
 $('sb').onclick=stopAll;
 $('free').onclick=()=>{ stopAll(); $('menu').style.display='none'; };
 $('song').onclick=()=>{ $('menu').style.display='none'; SONG?songDlg():songUpload(); };

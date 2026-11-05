@@ -54,7 +54,7 @@ input{width:100%;padding:9px;border-radius:8px;border:0;margin-top:6px;backgroun
 
 <script>
 // ================= সেটিংস =================
-const SCRIPT_URL = "";            // Apps Script Web App URL (ঐচ্ছিক)
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3hnHYJg5aQm9c0uXlxKWKT8LCTjBlvB012eOkZ5-sgeymjtlm3QS9_5et5m2EHVg1/exec";            // Apps Script Web App URL (ঐচ্ছিক)
 const USE = [0,1,2,3,4];          // ৫ তার (e,B,G,D,A)। ৬ তার চাইলে [0,1,2,3,4,5] লিখুন
 const COLS = 9;                   // ফ্রেট ঘর: ০ (খোলা) থেকে ৮
 const MASTER_GAIN = 2.6;          // সাউন্ড আরও লাউড করতে বাড়ান
@@ -251,7 +251,6 @@ function drawMenu(){ $('stl').innerHTML=''; ST.forEach((s,n)=>{ const b=document
   b.onclick=()=>{ if(!ok)return; $('menu').style.display='none'; startPrac(n); }; $('stl').appendChild(b); }); }
 $('mb').onclick=()=>{ initAudio(); $('menu').style.display='flex'; };
 $('mc').onclick=()=>$('menu').style.display='none';
-  
 $('sb').onclick=stopAll;
 $('free').onclick=()=>{ stopAll(); $('menu').style.display='none'; };
 $('song').onclick=()=>{ $('menu').style.display='none'; SONG?songDlg():songUpload(); };
